@@ -36,9 +36,9 @@ public class MapaPlantasConInsumo {
 	private void initialize (Insumo insumo) {
 		Object [] listaInsumos = datos.listaInsumosString();
 		listaRutasPintar = new ArrayList<Ruta>();
-		listaRutasPintar = datos.getGrafo().caminoPlanta();
+		//listaRutasPintar = datos.getGrafo().caminoPlanta();
 		
-		listaRutasPintar = datos.getListaRutas();
+		listaRutasPintar = datos.rutasPlantas(datos.getGrafo().caminoMasEficiente(insumo));
 		
 		ventana = new JFrame("Mapa de Plantas");
 		ventana.setSize(1300,500);
@@ -55,33 +55,29 @@ public class MapaPlantasConInsumo {
 		lienzo.setLayout(null);
 		ventana.getContentPane().add(lienzo);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
+		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(910, 106, 264, 30);
-		for(int i=0; i<listaInsumos.length; i++) {
-			comboBox.addItem((String) listaInsumos[i]);
-		}
-		//comboBox.setModel(new DefaultComboBoxModel(listaInsumos));
+		comboBox.setModel(new DefaultComboBoxModel(listaInsumos));
 		ventana.getContentPane().add(comboBox);
-		comboBox.setSelectedItem(insumo.getDescripcion());
 		
 		JLabel lblSeleccioneElInsumo = new JLabel("Seleccione el insumo para:");
-		lblSeleccioneElInsumo.setBounds(910, 11, 186, 14);
+		lblSeleccioneElInsumo.setBounds(910, 11, 364, 14);
 		ventana.getContentPane().add(lblSeleccioneElInsumo);
 		
 		JLabel lblPlantasQue = new JLabel("- Plantas que necesiten ese insumo.");
-		lblPlantasQue.setBounds(910, 36, 220, 14);
+		lblPlantasQue.setBounds(910, 36, 364, 14);
 		ventana.getContentPane().add(lblPlantasQue);
 		
 		JLabel lblElMejor = new JLabel("- El mejor camino para ir desde el acopio puerto");
 		lblElMejor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblElMejor.setToolTipText("");
-		lblElMejor.setBounds(910, 61, 400, 14);
+		lblElMejor.setBounds(910, 61, 364, 14);
 		ventana.getContentPane().add(lblElMejor);
 		
 		JLabel lblHastaElAcopio = new JLabel("hasta el acopio final pasando por todas esas plantas.");
 		lblHastaElAcopio.setToolTipText("");
 		lblHastaElAcopio.setHorizontalAlignment(SwingConstants.LEFT);
-		lblHastaElAcopio.setBounds(910, 81, 400, 14);
+		lblHastaElAcopio.setBounds(910, 81, 364, 14);
 		ventana.getContentPane().add(lblHastaElAcopio);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -90,13 +86,14 @@ public class MapaPlantasConInsumo {
 				if(comboBox.getSelectedIndex()!=0) {
 					
 					insumoBuscar=datos.buscarInsumoNombre((String)listaInsumos[comboBox.getSelectedIndex()]);
+					System.out.println(insumoBuscar);
 					new MapaPlantasConInsumo(insumoBuscar,datos);
 					ventana.dispose();
 					
 				}
 			}
 		});
-		btnBuscar.setBounds(1174, 425, 100, 25);
+		btnBuscar.setBounds(1174, 426, 100, 25);
 		ventana.getContentPane().add(btnBuscar);
 		
 		JButton btnAtrs = new JButton("Atrás");
@@ -106,7 +103,7 @@ public class MapaPlantasConInsumo {
 				ventana.dispose();
 			}
 		});
-		btnAtrs.setBounds(910, 425, 100, 25);
+		btnAtrs.setBounds(910, 426, 100, 25);
 		ventana.getContentPane().add(btnAtrs);
 		
 		ventana.setVisible(true);

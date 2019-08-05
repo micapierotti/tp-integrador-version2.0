@@ -4,6 +4,7 @@ public class Arista<T> {
 	private Vertice<T> inicio;
 	private Vertice<T> fin;
 	private Number valor;
+	private double peso;
 
 	public Arista(){
 		valor=1.0;
@@ -15,11 +16,17 @@ public class Arista<T> {
 		this.fin = fin;
 	}
 
-	public Arista(Vertice<T> ini,Vertice<T> fin,Number val){
+	public Arista(Vertice<T> ini,Vertice<T> fin,Number val, double peso){
 		this(ini,fin);
 		this.valor= val;
 	}
-	
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
 	public Vertice<T> getInicio() {
 		return inicio;
 	}

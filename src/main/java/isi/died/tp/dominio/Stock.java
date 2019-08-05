@@ -16,7 +16,11 @@ public class Stock {
 	
 	public Stock() {
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Stock [cantidad=" + cantidad + ", puntoPedido=" + puntoPedido + ", insumo=" + insumo + "]";
+	}
 	public int getId() {
 		return id;
 	}

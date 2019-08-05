@@ -108,8 +108,130 @@ public class GrafoPlanta extends Grafo<Planta> {
 	return planta;	
 	
 	}
+	
+	public ArrayList<Planta> plantasSinInsumo(Insumo insumo){
+		ArrayList<Planta> listaPlantasSinInsumo = new ArrayList<>();
+		
+		for(Planta planta: this.getVertices()) if(planta.necesitaInsumo(insumo)) listaPlantasSinInsumo.add(planta);
+		
+		return listaPlantasSinInsumo;
+	}
+	
+	public ArrayList<Planta> caminoMasEficiente(Insumo insumo){
+		
+		ArrayList<Vertice<Planta>> plantaSinInsumo = new ArrayList<>();
+		for(Planta planta:this.getVertices()) {
+			if(planta.necesitaInsumo(insumo))plantaSinInsumo.add(new Vertice(planta));
+		}
+		
+		if(plantaSinInsumo.isEmpty()) return new ArrayList<>();
+		
+		List<List<Vertice<Planta>>> todosCaminos = this.caminos(getAcopioPuerto(), getAcopioFinal());
+		List<List<Vertice<Planta>>> posiblesCaminos = new ArrayList<List<Vertice<Planta>>>();
+		
+		for(List<Vertice<Planta>> camino:todosCaminos) {
+			if(camino.containsAll(plantaSinInsumo)) {
+				posiblesCaminos.add(camino);
+			}
+		}
+
+		if(posiblesCaminos.isEmpty()) return new ArrayList<>();
+		
+		ArrayList<Double> distancias = new ArrayList<>();
+		
+		int cont;
+		double valorArista;
+		for(List<Vertice<Planta>> camino:posiblesCaminos) {
+			cont=1;
+			valorArista=0;
+			for(Vertice<Planta> planta:camino) {
+				if(cont<camino.size()) {
+					valorArista=valorArista+(double)this.buscarArista(planta, camino.get(cont)).getValor();
+				}
+				cont++;
+			}
+			distancias.add(valorArista);
+		}
+		
+		double cant=Integer.MAX_VALUE;
+		int index=0;
+		for(int i=0;i<distancias.size();i++) {
+			if(distancias.get(i)<cant) {
+				index=i;
+				cant=distancias.get(i);
+			}
+		}
+
+		ArrayList<Planta> plantasRecorrer = new ArrayList<>();
+		
+		for(Vertice<Planta> vertice:posiblesCaminos.get(index)) {
+			plantasRecorrer.add(vertice.getValor());
+		}
+		
+		return plantasRecorrer;
+	}
+	
+	public double flujoMaximo() {
+
+		List<List<Vertice<Planta>>> todosCaminos = this.caminos(getAcopioPuerto(), getAcopioFinal());
+		List<Arista<Planta>> listaAristas = this.getAristas();
+		
+		ArrayList<Double> pesoMin= new ArrayList<>();
+		ArrayList<Double> pesoRuta= new ArrayList<>();
+
+		int cont;
+		double min;
+		
+		for(List<Vertice<Planta>> camino:todosCaminos) {
+			System.out.println(camino);
+			cont=1;
+			for(Vertice<Planta> planta:camino) {
+				if(cont<camino.size()) {
+					System.out.println(this.buscarArista(planta, camino.get(cont)).getPeso());
+					pesoRuta.add(this.buscarArista(planta, camino.get(cont)).getPeso());
+				}
+				cont++;
+			}
+			
+			min=Integer.MAX_VALUE;
+			for(int i=0;i<pesoRuta.size();i++) {
+
+				if(pesoRuta.get(i)<min) {
+					System.out.println(min);
+					min=pesoRuta.get(i);
+				}
+			}
+
+			pesoMin.add(min);
+			
+			cont=1;
+			for(Vertice<Planta> planta:camino) {
+				
+				if(cont<camino.size()) {
+					System.out.println(this.buscarArista(planta, camino.get(cont)).getPeso()-min);
+					this.buscarArista(planta, camino.get(cont)).setPeso(this.buscarArista(planta, camino.get(cont)).getPeso()-min);
+				}
+				cont++;
+			}
+		}
+		
+		this.setAristas(listaAristas);
+		
+		double flujo=0;
+		for(int i=0;i<pesoMin.size();i++) {
+			flujo=flujo+pesoMin.get(i);
+		}
+		
+		System.out.println(pesoMin);
+		
+		return flujo;
+		
+	}
+	
 	public ArrayList<Ruta> caminoPlanta() {
 		// TODO Auto-generated method stub
 		return new ArrayList<Ruta>();
 	}
+	
+	
 }

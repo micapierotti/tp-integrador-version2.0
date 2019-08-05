@@ -27,7 +27,27 @@ public class Grafo<T> {
 		this.aristas = new ArrayList<Arista<T>>();
 		this.vertices = new ArrayList<Vertice<T>>();
 	}
+	
+	public List<Arista<T>> getAristas() {
+		return aristas;
+	}
 
+	public void setAristas(List<Arista<T>> aristas) {
+		this.aristas = aristas;
+	}
+
+	public ArrayList<T> getVertices() {
+		ArrayList<T> listaVertices = new ArrayList<>();
+		
+		for (Vertice <T> vertice:vertices) 	listaVertices.add(vertice.getValor());
+		
+		return listaVertices;
+	}
+	
+	public void setVertices(List<Vertice<T>> vertices) {
+		this.vertices = vertices;
+	}
+	
 	public void addNodo(T nodo){
 		this.addNodo(new Vertice<T>(nodo));
 	}
@@ -37,15 +57,15 @@ public class Grafo<T> {
 	}
 	
 	public void conectar(T n1,T n2){
-		this.conectar(getNodo(n1), getNodo(n2), 1.0);
+		this.conectar(getNodo(n1), getNodo(n2), 1.0,1.0);
 	}
 
-	public void conectar(T n1,T n2,Number valor){
-		this.conectar(getNodo(n1), getNodo(n2), valor);
+	public void conectar(T n1,T n2,Number valor,double peso){
+		this.conectar(getNodo(n1), getNodo(n2), valor,peso);
 	}
 
-	private void conectar(Vertice<T> nodo1,Vertice<T> nodo2,Number valor){
-		this.aristas.add(new Arista<T>(nodo1,nodo2,valor));
+	private void conectar(Vertice<T> nodo1,Vertice<T> nodo2,Number valor, double peso){
+		this.aristas.add(new Arista<T>(nodo1,nodo2,valor,peso));
 	}
 	
 	public Vertice<T> getNodo(T valor){
@@ -176,28 +196,30 @@ public class Grafo<T> {
         return false;
     }
     
-    private void buscarCaminosAux(Vertice<T> v1,Vertice<T> v2, List<Vertice<T>> marcados, List<List<Vertice<T>>> todos) {
+    private List<List<Vertice<T>>> buscarCaminosAux(Vertice<T> v1,Vertice<T> v2, List<Vertice<T>> marcados, List<List<Vertice<T>>> todos) {
     	List<Vertice<T>> adyacentes = this.getAdyacentes(v1);
     	// Vector copiaMarcados;
     	List<Vertice<T>>  copiaMarcados =null;
-;
 
-    	 for(Vertice<T> ady: adyacentes){
-    		 System.out.println(">> " + ady);
-    		 copiaMarcados = marcados.stream().collect(Collectors.toList());
-    		if(ady.equals(v2)) {
-    			copiaMarcados.add(v2);
-    			todos.add(new ArrayList<Vertice<T>>(copiaMarcados));
-    			System.out.println("ENCONTRO CAMINO "+ todos.toString());
-    		} else {
-    			if( !copiaMarcados.contains(ady)) {
-    		     copiaMarcados.add(ady);
-    		     this.buscarCaminosAux(ady,v2,copiaMarcados,todos);
-    		    }
-    		}
+
+   	 for(Vertice<T> ady: adyacentes){
+   	//	 System.out.println(">> " + ady);
+   		 copiaMarcados = marcados.stream().collect(Collectors.toList());
+   		if(ady.equals(v2)) {
+   			copiaMarcados.add(v2);
+   			todos.add(new ArrayList<Vertice<T>>(copiaMarcados));
+   		//	System.out.println("ENCONTRO CAMINO "+ todos.toString());
+   		} else {
+   			if( !copiaMarcados.contains(ady)) {
+   		     copiaMarcados.add(ady);
+   		     this.buscarCaminosAux(ady,v2,copiaMarcados,todos);
+   		    }
+   		}
+   	 }
+   	 return todos;
     	 }
 
-    }
+    
     
     public List<List<Vertice<T>>> caminos(T v1,T v2){
     	return this.caminos(new Vertice(v1), new Vertice(v2));
@@ -208,8 +230,8 @@ public class Grafo<T> {
     	List<List<Vertice<T>>>salida = new ArrayList<List<Vertice<T>>>();
     	List<Vertice<T>> marcados = new ArrayList<Vertice<T>>();
       marcados.add(v1);
-      buscarCaminosAux(v1,v2,marcados,salida);
-      return salida;
+      
+      return buscarCaminosAux(v1,v2,marcados,salida);
     }
 
     public Map<T,Integer> caminosMinimoDikstra(T valorOrigen){

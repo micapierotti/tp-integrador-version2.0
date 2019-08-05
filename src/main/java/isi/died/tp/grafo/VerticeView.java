@@ -22,21 +22,29 @@ public class VerticeView {
 		this.nombre=nombre;
 	}
 	
-	public VerticeView(int x,int y,String nombre,int id, Planta planta,Insumo insumo) {
+	public VerticeView(int x,int y,String nombre,int id, Planta planta,boolean pintar) {
 		this.planta=planta;
 		this.id=id;
 		this.x=x;
 		this.y=y;
 		this.nombre=nombre;
-		this.pintar=this.planta.necesitaInsumo(insumo);
-		System.out.println(planta.getNombre()+" "+this.planta.necesitaInsumo(insumo));
+		this.pintar=pintar;
 	}
 	
+	
+	public boolean isPintar() {
+		return pintar;
+	}
+
+	public void setPintar(boolean pintar) {
+		this.pintar = pintar;
+	}
+
 	public void pintar(Graphics g) {
 		
 		g.setColor(Color.BLACK);
 		if(pintar) {
-			System.out.println(planta.getNombre()+" pinto rojo");
+	//		System.out.println(planta.getNombre()+" pinto rojo");
 			g.setColor(Color.RED);
 		}
 		g.drawOval(this.x -d/2,this.y-d/2,d,d);

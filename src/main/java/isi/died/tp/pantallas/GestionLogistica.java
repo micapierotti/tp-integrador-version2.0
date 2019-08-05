@@ -43,13 +43,14 @@ public class GestionLogistica {
 				frame.dispose();
 			}
 		});
-		gestionLogistica.setBounds(224, 66, 170, 40);
+		gestionLogistica.setBounds(224, 37, 170, 40);
 		frame.getContentPane().add(gestionLogistica);
 		
 		JButton gestionInsumos = new JButton("Flujo Máximo de Red");
 		gestionInsumos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				new FlujoMaximo(datos);
+				frame.dispose();
 			}
 		});
 		gestionInsumos.setBounds(27, 88, 170, 40);
@@ -77,6 +78,12 @@ public class GestionLogistica {
 		JButton btnSeleccinDeEnvo = new JButton("Selección de Envío");
 		btnSeleccinDeEnvo.setBounds(27, 139, 170, 40);
 		frame.getContentPane().add(btnSeleccinDeEnvo);
+		btnSeleccinDeEnvo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new SeleccionEnvio(datos);
+				frame.dispose();
+			}
+		});
 		
 		JButton btnBuscarRuta = new JButton("Buscar Ruta");
 		btnBuscarRuta.addActionListener(new ActionListener() {
@@ -85,9 +92,18 @@ public class GestionLogistica {
 				frame.dispose();
 			}
 		});
-		btnBuscarRuta.setBounds(224, 117, 170, 40);
+		btnBuscarRuta.setBounds(224, 88, 170, 40);
 		frame.getContentPane().add(btnBuscarRuta);
 		
+		JButton btnCaminosEntrePlantas = new JButton("Caminos entre plantas");
+		btnCaminosEntrePlantas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new CaminoPlantaInicial(datos);
+				frame.dispose();
+			}
+		});
+		btnCaminosEntrePlantas.setBounds(224, 139, 170, 40);
+		frame.getContentPane().add(btnCaminosEntrePlantas);
 		frame.setVisible(true);
 	}
 

@@ -9,6 +9,11 @@ public class Ruta extends Arista<Planta> {
 		private int duracionEnMin;
 		private double pesoMaxEnToneladas;
 		
+		@Override
+		public String toString() {
+			return "Ruta [dis=" + distancia + ", dur=" + duracionEnMin + ", peso="
+					+ pesoMaxEnToneladas + " inicial="+this.getInicio()+ " fin="+this.getFin()+"]";
+		}
 		public double getDistancia() {
 			return distancia;
 		}
@@ -41,6 +46,19 @@ public class Ruta extends Arista<Planta> {
 			this.distancia=0;
 			this.duracionEnMin=0;
 			this.pesoMaxEnToneladas=0;
+		}
+		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			long temp;
+			temp = Double.doubleToLongBits(distancia);
+			result = prime * result + (int) (temp ^ (temp >>> 32));
+			result = prime * result + duracionEnMin;
+			temp = Double.doubleToLongBits(pesoMaxEnToneladas);
+			result = prime * result + (int) (temp ^ (temp >>> 32));
+			return result;
 		}
 		
 }

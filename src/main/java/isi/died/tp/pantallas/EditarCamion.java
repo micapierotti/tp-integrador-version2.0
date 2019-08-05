@@ -160,7 +160,7 @@ public class EditarCamion {
 				if(rdbtnS.isSelected()) {
 					AptoLiq=true;
 				}
-				double capacidad = Double.parseDouble(textCapacidad.getText());
+				int capacidad = Integer.parseInt(textCapacidad.getText());
 				camion.setMarca(marca);
 				camion.setModelo(modelo);
 				camion.setDominio(dominio);

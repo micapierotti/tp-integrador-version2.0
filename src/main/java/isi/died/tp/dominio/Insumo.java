@@ -43,7 +43,7 @@ public class Insumo implements Comparable <Insumo> {
 	
 	@Override
 	public String toString() {
-		return "Insumo [id=" + id + "]";
+		return descripcion;
 	}
 
 	public int compareTo(Insumo in) {

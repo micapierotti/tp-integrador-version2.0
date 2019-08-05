@@ -1,6 +1,7 @@
 package isi.died.tp.pantallas;
 
 import javax.swing.JFrame;
+
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;

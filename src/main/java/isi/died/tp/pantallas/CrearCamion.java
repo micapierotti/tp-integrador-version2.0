@@ -161,7 +161,7 @@ public class CrearCamion {
 				else if(rdbtnNo.isSelected()) {
 					AptoLiq=false;
 				}
-				double capacidad=Double.parseDouble(textIdCamion.getText());
+				int capacidad=Integer.parseInt(textIdCamion.getText());
 				Camion nuevoCamion = new Camion(nuevoId,nuevaMarca,nuevoMod,nuevoDom,nuevoAnio,costoXKM,AptoLiq,capacidad);
 				ArrayList<Camion> listaC = datos.getListaCamiones();
 				listaC.add(nuevoCamion);
