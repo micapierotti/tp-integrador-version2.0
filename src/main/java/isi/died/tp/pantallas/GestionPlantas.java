@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import isi.died.tp.app.App;
 import isi.died.tp.datos.Datos;
+import isi.died.tp.dominio.Planta;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -17,6 +18,10 @@ public class GestionPlantas {
 
 	public GestionPlantas(Datos datos) {
 		this.datos=datos;
+		System.out.println("Gestion Plantas");
+		for(Planta planta:datos.getListaPlantasNormal()) {
+			System.out.println(planta.getNombre());
+		}
 		initialize();
 	}
 

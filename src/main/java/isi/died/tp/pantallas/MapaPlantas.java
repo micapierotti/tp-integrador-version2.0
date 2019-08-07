@@ -23,8 +23,8 @@ public class MapaPlantas {
 	private JFrame ventana;
 	private Datos datos;
 	
-	public MapaPlantas(Datos datos) {
-		this.datos=datos;
+	public MapaPlantas(Datos datos1) {
+		this.datos=datos1;
 		initialize();
 	}
 	

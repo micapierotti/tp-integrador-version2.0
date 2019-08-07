@@ -33,7 +33,7 @@ public class Ruta extends Arista<Planta> {
 			this.pesoMaxEnToneladas = pesoMaxEnToneladas;
 		}
 		public Ruta(double distancia, int duracionEnMin, double pesoMaxEnToneladas,Planta plantaInicial, Planta plantaFinal) {
-			super(new Vertice<Planta>(plantaInicial),new Vertice<Planta>(plantaFinal));
+			super(new Vertice<Planta>(plantaInicial),new Vertice<Planta>(plantaFinal), distancia, pesoMaxEnToneladas);
 			
 			this.distancia = distancia;
 			this.duracionEnMin = duracionEnMin;

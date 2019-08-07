@@ -29,6 +29,10 @@ public class CrearRuta {
 	
 	public CrearRuta(Datos dat) {
 		datos=dat;
+		System.out.println("Crear Ruta");
+		for(Planta planta:datos.getListaPlantasNormal()) {
+			System.out.println(planta.getNombre());
+		}
 		initialize();
 	}
 
@@ -108,15 +112,15 @@ public class CrearRuta {
 		nombreOrigen.setBounds(180, 53, 126, 20);
 		frame.getContentPane().add(nombreOrigen);
 		
-		ArrayList<Planta> plantas = datos.getListaPlantas();
-		for(int i=0; i<datos.getListaPlantas().size(); i++) {
+		ArrayList<Planta> plantas = datos.getListaPlantasNormal();
+		for(int i=0; i<plantas.size(); i++) {
 			nombreOrigen.addItem(plantas.get(i).getNombre());
 		}
 		
 		JComboBox<String> nombreDestino = new JComboBox<String>();
 		nombreDestino.setBounds(180, 78, 126, 20);
 		frame.getContentPane().add(nombreDestino);
-		for(int i=0; i<datos.getListaPlantas().size(); i++) {
+		for(int i=0; i<plantas.size(); i++) {
 			nombreDestino.addItem(plantas.get(i).getNombre());
 		}
 		

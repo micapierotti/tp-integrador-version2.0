@@ -129,13 +129,13 @@ public class Datos {
 		listaCamiones.add(c11);
 	}
 	
-	public Datos(Datos datos) {
-		this.setListaInsumos(datos.getListaInsumos());
-		this.setListaPlantas(datos.getListaPlantas());
-		this.setListaCamiones(datos.getListaCamiones());
-		this.setListaStocks(datos.getListaStocks());
-		this.setListaRutas(datos.getListaRutas());
-		this.setGrafo(datos.getGrafo());
+	public Datos(Datos datos1) {
+		this.setListaInsumos(datos1.getListaInsumos());
+		this.setListaPlantas(datos1.getListaPlantas());
+		this.setListaCamiones(datos1.getListaCamiones());
+		this.setListaStocks(datos1.getListaStocks());
+		this.setListaRutas(datos1.getListaRutas());
+		this.setGrafo(datos1.getGrafo());
 	}
 	
 	public void agregarInsumo(Insumo insumo) {
@@ -165,6 +165,9 @@ public class Datos {
 		this.listaInsumos = listaInsumos;
 	}
 
+	public ArrayList<Planta> getListaPlantasNormal() {
+		return listaPlantas;
+	}
 	public ArrayList<Planta> getListaPlantas() {
 		return grafo.getVertices();
 	}
@@ -173,8 +176,8 @@ public class Datos {
 		return grafo.plantasSinInsumo(insumo);
 	}
 	
-	public void setListaPlantas(ArrayList<Planta> listaPlantas) {
-		this.listaPlantas = listaPlantas;
+	public void setListaPlantas(ArrayList<Planta> listaPlantas1) {
+		this.listaPlantas = listaPlantas1;
 	}
 
 	public ArrayList<Camion> getListaCamiones() {

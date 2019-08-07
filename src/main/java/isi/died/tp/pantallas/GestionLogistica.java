@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import isi.died.tp.app.App;
 import isi.died.tp.datos.Datos;
+import isi.died.tp.dominio.Planta;
 
 public class GestionLogistica {
 
@@ -15,6 +16,10 @@ public class GestionLogistica {
 
 	public GestionLogistica(Datos datos) {
 		this.datos=datos;
+		System.out.println("Gestion Logistica");
+		for(Planta planta:datos.getListaPlantasNormal()) {
+			System.out.println(planta.getNombre());
+		}
 		initialize();
 	}
 

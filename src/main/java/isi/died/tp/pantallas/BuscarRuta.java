@@ -38,6 +38,10 @@ public class BuscarRuta {
 	
 	public BuscarRuta(Datos dat) {
 		datos= new Datos(dat);
+		System.out.println("Buscar Ruta");
+		for(Planta planta:datos.getListaPlantasNormal()) {
+			System.out.println(planta.getNombre());
+		}
 		initialize();
 	}
 

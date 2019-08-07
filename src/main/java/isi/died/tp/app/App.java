@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import isi.died.tp.datos.Datos;
+import isi.died.tp.dominio.Planta;
 import isi.died.tp.pantallas.GestionInsumos;
 import isi.died.tp.pantallas.GestionLogistica;
 import isi.died.tp.pantallas.GestionPlantas;
@@ -37,6 +38,10 @@ public class App {
 	
 	public App(Datos datosActual) {
 		datos = datosActual;
+		System.out.println("Menu");
+		for(Planta planta:datos.getListaPlantasNormal()) {
+			System.out.println(planta.getNombre());
+		}
 		initialize();
 		frame.setVisible(true);
 	}

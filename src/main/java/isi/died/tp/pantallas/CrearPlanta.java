@@ -23,8 +23,8 @@ public class CrearPlanta {
 	private JTextField txtNombrePlanta;
 	private Datos datos;
 
-	public CrearPlanta(Datos datos) {
-		this.datos=datos;
+	public CrearPlanta(Datos datos1) {
+		this.datos=datos1;
 		initialize();
 	}
 
@@ -101,15 +101,23 @@ public class CrearPlanta {
 	
 		btnIngresarPlanta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Lista de plantas en datos antes");
+				for(Planta planta:datos.getListaPlantasNormal()) {
+					System.out.println(planta.getNombre());
+				}
 				int nuevoID;
 				nuevoID= Integer.parseInt(textIDPlanta.getText());
 				String nuevoNom = new String();
 				nuevoNom = txtNombrePlanta.getText();
 				
 				Planta nuevaPlanta = new Planta(nuevoID, nuevoNom);
-				ArrayList<Planta> listaP = datos.getListaPlantas();
-				listaP.add(nuevaPlanta);
-				datos.setListaPlantas(listaP);
+
+				//datos.setListaPlantas(listaP);
+				datos.agregarPlanta(nuevaPlanta);
+				System.out.println("Ingresar Planta");
+				for(Planta planta:datos.getListaPlantasNormal()) {
+					System.out.println(planta.getNombre());
+				}
 				new GestionPlantas(datos);
 				frame.dispose();
 			}
