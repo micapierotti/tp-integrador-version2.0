@@ -59,6 +59,7 @@ public class MapaPlantasConInsumo {
 		comboBox.setBounds(910, 106, 264, 30);
 		comboBox.setModel(new DefaultComboBoxModel(listaInsumos));
 		ventana.getContentPane().add(comboBox);
+		comboBox.setSelectedItem(insumo.getDescripcion());
 		
 		JLabel lblSeleccioneElInsumo = new JLabel("Seleccione el insumo para:");
 		lblSeleccioneElInsumo.setBounds(910, 11, 364, 14);
