@@ -19,6 +19,7 @@ public class Arista<T> {
 	public Arista(Vertice<T> ini,Vertice<T> fin,Number val, double peso){
 		this(ini,fin);
 		this.valor= val;
+		this.peso=peso;
 	}
 	public double getPeso() {
 		return peso;

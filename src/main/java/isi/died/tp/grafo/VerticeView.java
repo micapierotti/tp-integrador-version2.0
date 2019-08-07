@@ -40,15 +40,17 @@ public class VerticeView {
 		this.pintar = pintar;
 	}
 
-	public void pintar(Graphics g) {
+public void pintar(Graphics g) {
 		
 		g.setColor(Color.BLACK);
 		if(pintar) {
-	//		System.out.println(planta.getNombre()+" pinto rojo");
 			g.setColor(Color.RED);
 		}
-		g.drawOval(this.x -d/2,this.y-d/2,d,d);
-		g.drawString(nombre,x,y);
+		g.fillOval(this.x -d/2,this.y-d/2,d,d);
+		g.setColor(Color.BLACK);
+		g.drawString(nombre,x+25,y);
+		g.setColor(Color.BLACK);
+		
 		g.setColor(Color.BLACK);
 	}
 	

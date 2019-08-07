@@ -44,11 +44,10 @@ public class GenerarSolucion {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 62, 380, 128);
 		frame.getContentPane().add(scrollPane);
+System.out.println("Insumos optimos "+camion.insumoOptimos(planta));
 		
-		ArrayList<Insumo> listaInsumos = camion.insumoOptimos(planta);
-		
-		Object[][] datosTabla = null;
-		String[] columnas= {"Insumo", "Cantidad Transportada", "Valor"};
+		Object[][] datosTabla = generarDatos(camion.insumoOptimos(planta));
+		String[] columnas= {"Insumo"};
 		
 		table = new JTable();
 		table.setBackground(Color.LIGHT_GRAY);
@@ -62,7 +61,7 @@ public class GenerarSolucion {
 				frame.dispose();
 			}
 		});
-		salir.setBounds(324, 225, 100, 25);
+		salir.setBounds(294, 226, 130, 25);
 		frame.getContentPane().add(salir);
 		
 		JButton atras = new JButton("Atrás");
@@ -84,5 +83,13 @@ public class GenerarSolucion {
 		frame.getContentPane().add(lblHaciaPlanta);
 		
 		
+	}
+	private Object[][] generarDatos(ArrayList<Insumo> listaInsumos2){
+		Object[][] tabla = new Object[listaInsumos2.size()][1];
+		
+		for(int i=0;i<listaInsumos2.size();i++) {
+			tabla[i][0]=listaInsumos2.get(i).getDescripcion();
+		}
+		return tabla;
 	}
 }

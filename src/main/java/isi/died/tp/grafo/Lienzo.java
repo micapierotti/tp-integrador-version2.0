@@ -137,7 +137,7 @@ public class Lienzo extends JPanel implements MouseListener, MouseMotionListener
 	public void crearAristas() {
 		String nombre;
 		VerticeView v1=null,v2=null;
-		
+		if(!((datos.getListaRutas())==null)) {
 		for(Ruta ruta:datos.getListaRutas()) {
 			nombre="Dis= "+ruta.getDistancia()+" Dur="+ruta.getDuracionEnMin()+" Peso="+ruta.getPesoMaxEnToneladas();
 			
@@ -149,6 +149,7 @@ public class Lienzo extends JPanel implements MouseListener, MouseMotionListener
 			this.listaEnlaces.add(new AristaView(v1,v2,nombre,contIdEnlace,ruta));
 			contIdEnlace++;
 			repaint();
+		}
 		}
 	}
 	

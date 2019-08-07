@@ -86,72 +86,74 @@ public class Camion {
 		
 public ArrayList<Insumo> insumoOptimos(Planta planta) {
 			
-			ArrayList<Integer> pesoAux = new ArrayList<>();
-			ArrayList<Integer> valorAux = new ArrayList<>();
-			ArrayList<Insumo> insumoAux = new ArrayList<>();
-			
-			for(Stock stock:planta.getStocks()) {
-				if(stock.getCantidad()<stock.getPuntoPedido()) {
-					insumoAux.add(stock.getInsumo());
-					pesoAux.add((int)(stock.getCantidad()*stock.getInsumo().getPeso()));
-					valorAux.add((int)(stock.getCantidad()*stock.getInsumo().getCosto()));
-				}
-			}
-			
-			if(insumoAux.isEmpty()) return insumoAux;
-			
-			Insumo[] insumo = new Insumo[insumoAux.size()];
-			int[] peso = new int[insumoAux.size()];
-			int[] valor = new int[insumoAux.size()];
-			
-			for(int i=0;i<insumoAux.size();i++) {
-				insumo[i]=insumoAux.get(i);
-				peso[i]=pesoAux.get(i);
-				valor[i]=valorAux.get(i);
-			}
-			
-			   int cant = insumoAux.size(); // items
-			   int pesoCamion = capacidad +1; // max peso
-			   
-			   int[][] escenario = new int[cant][pesoCamion]; //matriz guarda valor de cada escenario
-			   boolean[][] posible = new boolean[cant][pesoCamion]; // matriz guarda si el element esta en el escenario
-			   
-			   for (int n = 0; n < cant; n++) {
-			       for (int w = 0; w < pesoCamion; w++) {
-			           int opcion1 = (n < 1) ? n : escenario[n-1][pesoCamion]; 
-			           int opcion2 = Integer.MIN_VALUE;
-			               if (peso[n] <= w) { 
-			            	   if(n==0)
-			            		   opcion2 = valor[n] + escenario[n][w - peso[n]];
-			            	   else 
-			            		   opcion2 = valor[n] + escenario[n-1][w - peso[n]]; 
-			               }
-			               
-			               escenario[n][w] = Math.max(opcion1, opcion2);
-			           posible[n][w] = (opcion2 > opcion1);
-			       }
-			   }
-			
-			   
-			   boolean[] resultado= new boolean[cant];
-			   
-			   for (int n = cant-1, w = pesoCamion-1; n >= 0; n--) {
-			       if (posible[n][w]) {
-			           resultado [n] = true;
-			           w = w - peso[n];
-			       } else {
-			           resultado [n] = false;
-			       }
-			   }
-			   
-			   
-			   insumoAux = new ArrayList<>();
-			   
-			   for(int i=0;i<insumo.length;i++) {
-				   if(resultado[i]) insumoAux.add(insumo[i]);
-			   }
-			   
-			   return insumoAux;
-			   
+	
+	ArrayList<Integer> pesoAux = new ArrayList<>();
+	ArrayList<Integer> valorAux = new ArrayList<>();
+	ArrayList<Insumo> insumoAux = new ArrayList<>();
+	
+	for(Stock stock:planta.getStocks()) {
+		if(stock.getCantidad()<stock.getPuntoPedido()) {
+			insumoAux.add(stock.getInsumo());
+			pesoAux.add((int)((stock.getPuntoPedido()-stock.getCantidad())*stock.getInsumo().getPeso()));
+			valorAux.add((int)((stock.getPuntoPedido()-stock.getCantidad())*stock.getInsumo().getCosto()));
 		}
+	}
+	
+	if(insumoAux.isEmpty()) return insumoAux;
+	
+	Insumo[] insumo = new Insumo[insumoAux.size()];
+	int[] peso = new int[insumoAux.size()];
+	int[] valor = new int[insumoAux.size()];
+	
+	for(int i=0;i<insumoAux.size();i++) {
+		insumo[i]=insumoAux.get(i);
+		peso[i]=pesoAux.get(i);
+		valor[i]=valorAux.get(i);
+	}
+	
+	System.out.println(insumo);
+	   int cant = insumoAux.size(); // items
+	   int pesoCamion = capacidad+1; // max peso
+	   
+	   int[][] escenario = new int[cant][pesoCamion]; //matriz guarda valor de cada escenario
+	   boolean[][] posible = new boolean[cant][pesoCamion]; // matriz guarda si el element esta en el escenario
+	   
+	   for (int n = 0; n < cant; n++) {
+	       for (int w = 0; w < pesoCamion; w++) {
+	           int opcion1 = (n < 1) ? n : escenario[n-1][w]; 
+	           int opcion2 = Integer.MIN_VALUE;
+	               if (peso[n] <= w) { 
+	            	   if(n==0)
+	            		   opcion2 = valor[n] + escenario[n][w - peso[n]];
+	            	   else 
+	            		   opcion2 = valor[n] + escenario[n-1][w - peso[n]]; 
+	               }
+	               
+	               escenario[n][w] = Math.max(opcion1, opcion2);
+	           posible[n][w] = (opcion2 > opcion1);
+	       }
+	   }
+	
+	   
+	   boolean[] resultado= new boolean[cant];
+	   
+	   for (int n = cant-1, w = pesoCamion-1; n >= 0; n--) {
+	       if (posible[n][w]) {
+	           resultado [n] = true;
+	           w = w - peso[n];
+	       } else {
+	           resultado [n] = false;
+	       }
+	   }
+	   
+	   
+	   insumoAux = new ArrayList<>();
+	   
+	   for(int i=0;i<insumo.length;i++) {
+		   if(resultado[i]) insumoAux.add(insumo[i]);
+	   }
+	   
+	   return insumoAux;
+	   
+}
 }

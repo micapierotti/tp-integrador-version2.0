@@ -34,7 +34,7 @@ public class SeleccionEnvio {
 	private Datos datos;
 	private JTable tablaCamion;
     private ListSelectionModel model;
-    private Planta seleccionPlanta;
+    private Planta seleccionPlanta=null;
     private Camion seleccionCamion;
 	
 	public SeleccionEnvio(Datos datos) {
@@ -79,7 +79,7 @@ public class SeleccionEnvio {
 				frame.dispose();
 			}
 		});
-		btnSalir.setBounds(574, 225, 100, 25);
+		btnSalir.setBounds(535, 225, 140, 25);
 		frame.getContentPane().add(btnSalir);
 		btnSalir.setEnabled(false);
 		

@@ -37,17 +37,17 @@ public class FlujoMaximo {
 				frame.dispose();
 			}
 		});
-		btnAtrs.setBounds(168, 227, 100, 25);
+		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
 		
 		JLabel lblElPesoA = new JLabel("El peso a transportar maximo para el flujo maximo de red es:");
-		lblElPesoA.setBounds(10, 58, 414, 14);
+		lblElPesoA.setBounds(48, 76, 414, 14);
 		frame.getContentPane().add(lblElPesoA);
 		
-		System.out.println(datos.getGrafo().flujoMaximo());
+		//System.out.println(datos.getGrafo().flujoMaximo());
 		
 		JLabel lblA = new JLabel(String.valueOf(datos.getGrafo().flujoMaximo()));
-		lblA.setBounds(184, 101, 46, 14);
+		lblA.setBounds(203, 120, 46, 14);
 		frame.getContentPane().add(lblA);
 		
 		frame.setVisible(true);

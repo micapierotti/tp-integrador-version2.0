@@ -1,5 +1,6 @@
 package isi.died.tp.datos;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 import isi.died.tp.dominio.*;
@@ -82,10 +83,10 @@ public class Datos {
 		this.agregarRuta(r6);
 		this.agregarRuta(r7);
 		
-		Insumo i13=new Insumo("A","A1",0,300,600,false,UnidadMedida.UNIDAD);
-		Insumo i14=new Insumo("B","A2",0,200,900,false,UnidadMedida.UNIDAD);
-		Insumo i15=new Insumo("C","A3",0,100,500,false,UnidadMedida.UNIDAD);
-		Insumo i16=new Insumo("D","A4",0,200,600,false,UnidadMedida.UNIDAD);
+		Insumo i13=new Insumo("A","A1",0,3,600,false,UnidadMedida.UNIDAD);
+		Insumo i14=new Insumo("B","A2",0,2,900,false,UnidadMedida.UNIDAD);
+		Insumo i15=new Insumo("C","A3",0,1,500,false,UnidadMedida.UNIDAD);
+		Insumo i16=new Insumo("D","A4",0,2,600,false,UnidadMedida.UNIDAD);
 		
 		this.agregarInsumo(i13);
 		this.agregarInsumo(i14);
@@ -378,5 +379,17 @@ public class Datos {
 			}
 		}
 		return true;
+	}
+	public void eliminarPlanta (Planta planta) {
+	this.listaPlantas.remove(planta);
+	ArrayList<Ruta> rutas = new ArrayList<Ruta>();
+	for(Ruta r:listaRutas) {
+		if(!(r.getInicio().getValor().equals(planta)) && !(r.getFin().getValor().equals(planta)))
+			rutas.add(r);
+	}
+	this.listaRutas.clear();
+	this.setListaRutas(rutas);
+	this.grafo.eliminarPlantaGrafo(planta);
+		
 	}
 }

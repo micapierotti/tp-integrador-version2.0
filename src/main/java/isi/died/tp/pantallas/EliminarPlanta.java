@@ -81,9 +81,7 @@ public class EliminarPlanta {
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Planta> listaP = datos.getListaPlantas();
-				listaP.remove(planta);
-				datos.setListaPlantas(listaP);
+				datos.eliminarPlanta(planta);
 				new BuscarPlanta(datos);
 				frame.dispose();
 			}

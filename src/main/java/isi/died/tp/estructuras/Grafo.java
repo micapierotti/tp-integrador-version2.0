@@ -44,6 +44,14 @@ public class Grafo<T> {
 		return listaVertices;
 	}
 	
+	public ArrayList<Vertice<T>> getVertices2() {
+		ArrayList<Vertice<T>> listaVertices = new ArrayList<>();
+		
+		for (Vertice <T> vertice:vertices) 	listaVertices.add(vertice);
+		
+		return listaVertices;
+	}
+	
 	public void setVertices(List<Vertice<T>> vertices) {
 		this.vertices = vertices;
 	}
