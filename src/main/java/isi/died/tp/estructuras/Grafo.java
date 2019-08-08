@@ -72,7 +72,7 @@ public class Grafo<T> {
 		this.conectar(getNodo(n1), getNodo(n2), valor,peso);
 	}
 
-	private void conectar(Vertice<T> nodo1,Vertice<T> nodo2,Number valor, double peso){
+	public void conectar(Vertice<T> nodo1,Vertice<T> nodo2,Number valor, double peso){
 		this.aristas.add(new Arista<T>(nodo1,nodo2,valor,peso));
 	}
 	

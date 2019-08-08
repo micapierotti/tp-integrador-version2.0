@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import isi.died.tp.datos.Datos;
 import isi.died.tp.dominio.Planta;
 import isi.died.tp.dominio.Ruta;
+import isi.died.tp.estructuras.Arista;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -158,6 +159,11 @@ public class EditarRuta {
 				ruta.setDuracionEnMin(duracion);
 				ruta.setPesoMaxEnToneladas(pesomax);
 				listaR.add(ruta);
+				
+				ArrayList<Arista<Planta>> listaAristas=(ArrayList<Arista<Planta>>) datos.getGrafo().getAristas();
+				listaAristas.remove(datos.getGrafo().buscarArista(ruta.getInicio(), ruta.getFin()));
+				datos.getGrafo().setAristas(listaAristas);
+				datos.getGrafo().conectar(ruta.getInicio(), ruta.getFin(), ruta.getDistancia(), ruta.getPesoMaxEnToneladas());
 				datos.setListaRutas(listaR);
 				new BuscarRuta(datos);
 				frame.dispose();
