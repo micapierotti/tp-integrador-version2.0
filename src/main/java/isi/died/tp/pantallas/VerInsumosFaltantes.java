@@ -35,7 +35,12 @@ public class VerInsumosFaltantes {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"0001", "0002", "0003", "0004", "0005", "0006"}));
 		comboBox.setBounds(69, 21, 119, 25);
@@ -45,7 +50,8 @@ public class VerInsumosFaltantes {
 		lblPlanta.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPlanta.setBounds(22, 27, 46, 14);
 		frame.getContentPane().add(lblPlanta);
-		
+		lblPlanta.setForeground(beige);
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 62, 380, 128);
 		frame.getContentPane().add(scrollPane);
@@ -80,7 +86,8 @@ public class VerInsumosFaltantes {
 		});
 		btnSalir.setBounds(324, 225, 100, 25);
 		frame.getContentPane().add(btnSalir);
-		
+		btnSalir.setForeground(beige);
+		btnSalir.setBackground(rojo);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +98,8 @@ public class VerInsumosFaltantes {
 		
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		frame.setVisible(true);
 	}
 }

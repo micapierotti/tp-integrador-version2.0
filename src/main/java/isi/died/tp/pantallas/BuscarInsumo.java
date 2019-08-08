@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -46,6 +47,12 @@ public class BuscarInsumo {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("Buscar Insumo");
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
 		
 		JButton borrar = new JButton("Borrar");
 		borrar.setBounds(447, 276, 109, 25);
@@ -57,7 +64,8 @@ public class BuscarInsumo {
 				frame.dispose();
 			}
 		});
-		
+		borrar.setForeground(beige);
+		borrar.setBackground(rojo);
 		JButton Atrás = new JButton("Atrás");
 		Atrás.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,16 +75,19 @@ public class BuscarInsumo {
 		});
 		Atrás.setBounds(10, 275, 100, 25);
 		frame.getContentPane().add(Atrás);
-		
+		Atrás.setForeground(beige);
+		Atrás.setBackground(rojo);
 		JLabel lblIngreseLosDatos = new JLabel("Ingrese los datos del insumo:");
 		lblIngreseLosDatos.setBounds(10, 11, 200, 14);
 		frame.getContentPane().add(lblIngreseLosDatos);
-		
+		lblIngreseLosDatos.setForeground(beige);
+
 		JLabel descripcion = new JLabel("Descripción: ");
 		descripcion.setHorizontalAlignment(SwingConstants.RIGHT);
 		descripcion.setBounds(-59, 39, 200, 14);
 		frame.getContentPane().add(descripcion);
-		
+		descripcion.setForeground(beige);
+
 		tfDescripcion = new JTextField();
 		tfDescripcion.setColumns(10);
 		tfDescripcion.setBounds(151, 36, 130, 20);
@@ -86,6 +97,7 @@ public class BuscarInsumo {
 		costoMax.setHorizontalAlignment(SwingConstants.RIGHT);
 		costoMax.setBounds(-59, 101, 200, 14);
 		frame.getContentPane().add(costoMax);
+		costoMax.setForeground(beige);
 		
 		tfCostoMin = new JTextField();
 		tfCostoMin.setColumns(10);
@@ -96,6 +108,7 @@ public class BuscarInsumo {
 		stockMin.setHorizontalAlignment(SwingConstants.RIGHT);
 		stockMin.setBounds(-13, 132, 154, 20);
 		frame.getContentPane().add(stockMin);
+		stockMin.setForeground(beige);
 		
 		tfCostoMax = new JTextField();
 		tfCostoMax.setColumns(10);
@@ -106,6 +119,7 @@ public class BuscarInsumo {
 		stockMax.setHorizontalAlignment(SwingConstants.RIGHT);
 		stockMax.setBounds(-59, 163, 200, 14);
 		frame.getContentPane().add(stockMax);
+		stockMax.setForeground(beige);
 		
 		JTextField tfStockMin = new JTextField();
 		tfStockMin.setColumns(10);
@@ -116,6 +130,7 @@ public class BuscarInsumo {
 		costoMin.setHorizontalAlignment(SwingConstants.RIGHT);
 		costoMin.setBounds(-59, 70, 200, 14);
 		frame.getContentPane().add(costoMin);
+		costoMin.setForeground(beige);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(331, 38, 225, 200);
@@ -172,7 +187,8 @@ public class BuscarInsumo {
 		editar.setBounds(337, 276, 100, 25);
 		frame.getContentPane().add(editar);
 		editar.setEnabled(false);		
-		
+		editar.setForeground(beige);
+		editar.setBackground(rojo);
 		
 		tfDescripcion.addKeyListener(new KeyAdapter() {
 			@Override

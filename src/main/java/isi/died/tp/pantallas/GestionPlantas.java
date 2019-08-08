@@ -8,6 +8,7 @@ import isi.died.tp.dominio.Planta;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class GestionPlantas {
@@ -37,7 +38,12 @@ public class GestionPlantas {
 		});
 		
 		frame.getContentPane().setLayout(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JButton btnVerPlantas = new JButton("Ver plantas");
 		btnVerPlantas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -47,7 +53,8 @@ public class GestionPlantas {
 		});
 		btnVerPlantas.setBounds(144, 41, 130, 40);
 		frame.getContentPane().add(btnVerPlantas);
-		
+		btnVerPlantas.setForeground(azul);
+		btnVerPlantas.setBackground(beige);
 		JButton btnCrearPlanta = new JButton("Crear planta");
 		btnCrearPlanta.setBounds(144, 92, 130, 40);
 		frame.getContentPane().add(btnCrearPlanta);
@@ -57,7 +64,8 @@ public class GestionPlantas {
 				frame.dispose();
 			}
 		});
-		
+		btnCrearPlanta.setForeground(azul);
+		btnCrearPlanta.setBackground(beige);
 		JButton btnBuscarPlanta = new JButton("Buscar planta");
 		btnBuscarPlanta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +75,8 @@ public class GestionPlantas {
 		});
 		btnBuscarPlanta.setBounds(144, 143, 130, 40);
 		frame.getContentPane().add(btnBuscarPlanta);
-		
+		btnBuscarPlanta.setForeground(azul);
+		btnBuscarPlanta.setBackground(beige);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +86,8 @@ public class GestionPlantas {
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -86,7 +96,8 @@ public class GestionPlantas {
 		});
 		btnSalir.setBounds(324, 225, 100, 25);
 		frame.getContentPane().add(btnSalir);
-		
+		btnSalir.setForeground(beige);
+		btnSalir.setBackground(rojo);
 		frame.setVisible(true);
 	}
 }

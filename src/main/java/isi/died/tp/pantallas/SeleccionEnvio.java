@@ -49,7 +49,12 @@ public class SeleccionEnvio {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setModel(new DefaultComboBoxModel(datos.listaPlantasString()));
 		comboBox.setBounds(69, 27, 160, 25);
@@ -59,6 +64,7 @@ public class SeleccionEnvio {
 		lblPlanta.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPlanta.setBounds(22, 32, 46, 14);
 		frame.getContentPane().add(lblPlanta);
+		lblPlanta.setForeground(beige);
 		
 		JScrollPane scrollPaneInsumo = new JScrollPane();
 		scrollPaneInsumo.setBounds(22, 62, 310, 130);
@@ -82,7 +88,8 @@ public class SeleccionEnvio {
 		btnSalir.setBounds(535, 225, 140, 25);
 		frame.getContentPane().add(btnSalir);
 		btnSalir.setEnabled(false);
-		
+		btnSalir.setForeground(beige);
+		btnSalir.setBackground(rojo);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,7 +100,8 @@ public class SeleccionEnvio {
 		
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		JScrollPane scrollPaneCamion = new JScrollPane();
 		scrollPaneCamion.setBounds(352, 62, 310, 130);
 		frame.getContentPane().add(scrollPaneCamion);
@@ -109,7 +117,8 @@ public class SeleccionEnvio {
 		lblSeleccioneUnCamin.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSeleccioneUnCamin.setBounds(352, 32, 160, 14);
 		frame.getContentPane().add(lblSeleccioneUnCamin);
-
+		lblSeleccioneUnCamin.setForeground(beige);
+		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				

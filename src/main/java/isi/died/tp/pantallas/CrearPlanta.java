@@ -36,15 +36,22 @@ public class CrearPlanta {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JLabel lblId = new JLabel("ID :");
 		lblId.setBounds(124, 40, 18, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		JLabel lblNombre = new JLabel("Nombre :");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(85, 65, 57, 14);
 		frame.getContentPane().add(lblNombre);
+		lblNombre.setForeground(beige);
 		
 		textIDPlanta = new JTextField();
 		
@@ -66,12 +73,15 @@ public class CrearPlanta {
 		});
 		
 		btnAtrs.setBounds(10, 227, 89, 23);
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		frame.getContentPane().add(btnAtrs);
 		
 		JButton btnIngresarPlanta = new JButton("Ingresar planta");
 		btnIngresarPlanta.setBounds(303, 227, 121, 23);
 		frame.getContentPane().add(btnIngresarPlanta);
-		
+		btnIngresarPlanta.setForeground(beige);
+		btnIngresarPlanta.setBackground(rojo);
 		JLabel lblElIdYa = new JLabel("El ID ya existe.");
 		lblElIdYa.setForeground(Color.RED);
 		lblElIdYa.setBounds(261, 40, 100, 14);

@@ -66,6 +66,12 @@ public class CaminosEntrePlantas {
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setLocationRelativeTo(null);
 		ventana.getContentPane().setLayout(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		ventana.getContentPane().setBackground(azul);
 		
 		lienzo = new Lienzo(plantaInicial, plantaFinal,listaRutasPintar,datos);
 		lienzo.setBackground(Color.LIGHT_GRAY);
@@ -89,7 +95,8 @@ public class CaminosEntrePlantas {
 		JLabel lblSeleccioneElInsumo = new JLabel("Elija un camino entre "+plantaInicial.getNombre()+" y "+plantaFinal.getNombre()+":");
 		lblSeleccioneElInsumo.setBounds(910, 11, 364, 14);
 		ventana.getContentPane().add(lblSeleccioneElInsumo);
-		
+		lblSeleccioneElInsumo.setForeground(beige);
+				
 		JButton btnBuscar = new JButton("Mostrar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,7 +106,8 @@ public class CaminosEntrePlantas {
 		});
 		btnBuscar.setBounds(1174, 426, 100, 25);
 		ventana.getContentPane().add(btnBuscar);
-		
+		btnBuscar.setForeground(beige);
+		btnBuscar.setBackground(rojo);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -109,7 +117,8 @@ public class CaminosEntrePlantas {
 		});
 		btnAtrs.setBounds(910, 426, 100, 25);
 		ventana.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		ventana.setVisible(true);
 	}
 	

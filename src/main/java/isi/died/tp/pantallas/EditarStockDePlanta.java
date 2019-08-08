@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -41,7 +42,12 @@ public class EditarStockDePlanta {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Editar Stock de Planta");
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -51,21 +57,25 @@ public class EditarStockDePlanta {
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		JLabel lblInsumo = new JLabel("Insumo:");
 		lblInsumo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblInsumo.setBounds(91, 68, 100, 14);
 		frame.getContentPane().add(lblInsumo);
+		lblInsumo.setForeground(beige);
 		
 		JLabel lblCantidad = new JLabel("Cantidad:");
 		lblCantidad.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCantidad.setBounds(91, 104, 100, 14);
 		frame.getContentPane().add(lblCantidad);
+		lblCantidad.setForeground(beige);
 		
 		JLabel lblPuntoDePedido = new JLabel("Punto de pedido:");
 		lblPuntoDePedido.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPuntoDePedido.setBounds(71, 140, 120, 14);
 		frame.getContentPane().add(lblPuntoDePedido);
+		lblPuntoDePedido.setForeground(beige);
 		
 		JComboBox<String> listaInsumos = new JComboBox<String>();
 		listaInsumos.setBounds(201, 65, 86, 20);
@@ -107,6 +117,8 @@ public class EditarStockDePlanta {
 			}
 		});
 		btnGuardarCambios.setBounds(279, 225, 145, 25);
+		btnGuardarCambios.setForeground(beige);
+		btnGuardarCambios.setBackground(rojo);
 		frame.getContentPane().add(btnGuardarCambios);
 		frame.setVisible(true);
 	}

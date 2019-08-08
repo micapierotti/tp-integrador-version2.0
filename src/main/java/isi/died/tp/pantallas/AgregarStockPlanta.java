@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class AgregarStockPlanta {
@@ -38,26 +39,32 @@ public class AgregarStockPlanta {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
 		
 		JLabel lblNewLabel = new JLabel("Datos del stock:");
 		lblNewLabel.setBounds(43, 47, 150, 14);
 		frame.getContentPane().add(lblNewLabel);
-		
+		lblNewLabel.setForeground(beige);
 		JLabel lblNewLabel_1 = new JLabel("Insumo:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setBounds(73, 82, 100, 14);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+		lblNewLabel_1.setForeground(beige);
 		JLabel lblNewLabel_2 = new JLabel("Cantidad:");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2.setBounds(73, 117, 100, 14);
 		frame.getContentPane().add(lblNewLabel_2);
-		
+		lblNewLabel_2.setForeground(beige);
 		JLabel lblNewLabel_3 = new JLabel("Punto de pedido:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_3.setBounds(43, 152, 130, 14);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+		lblNewLabel_3.setForeground(beige);
 		JComboBox<String> listaInsumos = new JComboBox<String>();
 		listaInsumos.setBounds(183, 79, 86, 20);
 		frame.getContentPane().add(listaInsumos);
@@ -91,6 +98,8 @@ public class AgregarStockPlanta {
 		});
 		btnNewButton.setBounds(10, 226, 100, 25);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBackground(rojo);
+		btnNewButton.setForeground(beige);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
@@ -111,12 +120,13 @@ public class AgregarStockPlanta {
 		});
 		btnGuardar.setBounds(324, 226, 100, 25);
 		frame.getContentPane().add(btnGuardar);
-		
+		btnGuardar.setBackground(rojo);
+		btnGuardar.setForeground(beige);
 		JLabel lblId = new JLabel("ID:");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(127, 50, 46, 14);
 		frame.getContentPane().add(lblId);
-		
+		lblId.setForeground(beige);
 		frame.setVisible(true);
 	}
 }

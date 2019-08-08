@@ -39,7 +39,12 @@ public class GenerarSolucion {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(30, 62, 380, 128);
@@ -63,7 +68,8 @@ System.out.println("Insumos optimos "+camion.insumoOptimos(planta));
 		});
 		salir.setBounds(294, 226, 130, 25);
 		frame.getContentPane().add(salir);
-		
+		salir.setForeground(beige);
+		salir.setBackground(rojo);
 		JButton atras = new JButton("Atrás");
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,14 +79,17 @@ System.out.println("Insumos optimos "+camion.insumoOptimos(planta));
 		});
 		atras.setBounds(10, 226, 100, 25);
 		frame.getContentPane().add(atras);
-		
+		atras.setForeground(beige);
+		atras.setBackground(rojo);
 		JLabel lblCamion = new JLabel("Camión: "+camion.getDominio());
 		lblCamion.setBounds(30, 26, 138, 14);
 		frame.getContentPane().add(lblCamion);
+		lblCamion.setForeground(beige);
 		
 		JLabel lblHaciaPlanta = new JLabel("Hacia planta:"+planta.getNombre());
 		lblHaciaPlanta.setBounds(232, 26, 178, 14);
 		frame.getContentPane().add(lblHaciaPlanta);
+		lblHaciaPlanta.setForeground(beige);
 		
 		
 	}

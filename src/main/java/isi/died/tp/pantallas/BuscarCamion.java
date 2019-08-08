@@ -19,6 +19,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.JRadioButton;
 import isi.died.tp.datos.Datos;
 import isi.died.tp.dominio.Camion;
+
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ButtonGroup;
 
@@ -51,12 +53,19 @@ public class BuscarCamion {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
 		
 		JLabel lblId = new JLabel("ID:");
 		lblId.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(57, 85, 46, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		textField = new JTextField();
 		textField.setBounds(108, 82, 93, 20);
@@ -68,19 +77,19 @@ public class BuscarCamion {
 		lblIngreseLosDatos.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngreseLosDatos.setBounds(10, 45, 200, 14);
 		frame.getContentPane().add(lblIngreseLosDatos);
-		
+		lblIngreseLosDatos.setForeground(beige);
 		lblBsquedaopcional = new JLabel("(opcional):");
 		lblBsquedaopcional.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblBsquedaopcional.setHorizontalAlignment(SwingConstants.LEFT);
 		lblBsquedaopcional.setBounds(10, 61, 150, 14);
 		frame.getContentPane().add(lblBsquedaopcional);
-		
+		lblBsquedaopcional.setForeground(beige);
 		lblNombre = new JLabel("Dominio:");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(3, 113, 100, 14);
 		frame.getContentPane().add(lblNombre);
-		
+		lblNombre.setForeground(beige);
 		textField_1 = new JTextField();
 		textField_1.setBounds(108, 110, 93, 20);
 		frame.getContentPane().add(textField_1);
@@ -96,7 +105,8 @@ public class BuscarCamion {
 		btnNewButton.setBounds(564, 216, 100, 25);
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.setEnabled(false);
-		
+		btnNewButton.setBackground(rojo);
+		btnNewButton.setForeground(beige);
 		JButton btnNewButton_1 = new JButton("Atrás");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,13 +116,14 @@ public class BuscarCamion {
 		});
 		btnNewButton_1.setBounds(10, 259, 100, 25);
 		frame.getContentPane().add(btnNewButton_1);
-		
+		btnNewButton_1.setBackground(rojo);
+		btnNewButton_1.setForeground(beige);
 		JLabel lblPlantasEncontradas = new JLabel("Camiones encontrados:");
 		lblPlantasEncontradas.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblPlantasEncontradas.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPlantasEncontradas.setBounds(218, 29, 128, 14);
 		frame.getContentPane().add(lblPlantasEncontradas);
-		
+		lblPlantasEncontradas.setForeground(beige);
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(218, 54, 446, 151);
 		frame.getContentPane().add(scrollPane);
@@ -131,13 +142,13 @@ public class BuscarCamion {
 		lblIdInsumo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIdInsumo.setBounds(3, 141, 100, 14);
 		frame.getContentPane().add(lblIdInsumo);
-		
+		lblIdInsumo.setForeground(beige);
 		lblAptoParaLquidos = new JLabel("Apto para líquidos:");
 		lblAptoParaLquidos.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblAptoParaLquidos.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblAptoParaLquidos.setBounds(-17, 166, 120, 14);
 		frame.getContentPane().add(lblAptoParaLquidos);
-		
+		lblAptoParaLquidos.setForeground(beige);
 		JButton btnEditar = new JButton("Editar");
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,6 +159,8 @@ public class BuscarCamion {
 		btnEditar.setBounds(218, 216, 100, 25);
 		frame.getContentPane().add(btnEditar);
 		btnEditar.setEnabled(false);
+		btnEditar.setBackground(rojo);
+		btnEditar.setForeground(beige);
 		
 		JRadioButton rdbtnS = new JRadioButton("Sí");
 		rdbtnS.addActionListener(new ActionListener() {
@@ -178,6 +191,8 @@ public class BuscarCamion {
 		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnS.setBounds(108, 162, 52, 23);
 		frame.getContentPane().add(rdbtnS);
+		rdbtnS.setBackground(azul);
+		rdbtnS.setForeground(beige);
 		
 		JRadioButton rdbtnNo = new JRadioButton("No");
 		rdbtnNo.addActionListener(new ActionListener() {
@@ -208,7 +223,8 @@ public class BuscarCamion {
 		rdbtnNo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnNo.setBounds(162, 162, 52, 23);
 		frame.getContentPane().add(rdbtnNo);
-		
+		rdbtnNo.setForeground(beige);
+		rdbtnNo.setBackground(azul);
 		textField_2 = new JTextField();
 		textField_2.setBounds(108, 141, 93, 20);
 		frame.getContentPane().add(textField_2);
@@ -340,7 +356,7 @@ public class BuscarCamion {
 		for(int i=0; i<datosTabla.length;i++) {
 			idAux=(String) datosTabla[i][0];
 			domAux=(String) datosTabla[i][1];
-			cantAux= Double.toString((double)datosTabla[i][2]);
+			cantAux= Integer.toString((int)datosTabla[i][2]);
 			if(((String) datosTabla[i][3]).contains("Si")) {
 				liqAux = "1";
 			}else { liqAux = "2";}

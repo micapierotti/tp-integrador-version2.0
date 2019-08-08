@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -44,7 +45,12 @@ public class CrearRuta {
 		frame.setTitle("Nueva ruta");
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -53,22 +59,27 @@ public class CrearRuta {
 			}
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		frame.getContentPane().add(btnAtrs);
 		
 		JLabel lblNombrePlantaOrigen = new JLabel("Nombre planta origen:");
 		lblNombrePlantaOrigen.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombrePlantaOrigen.setBounds(5, 56, 170, 14);
 		frame.getContentPane().add(lblNombrePlantaOrigen);
+		lblNombrePlantaOrigen.setForeground(beige);
 		
 		JLabel lblNombrePlantaDestino = new JLabel("Nombre planta destino:");
 		lblNombrePlantaDestino.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombrePlantaDestino.setBounds(5, 81, 170, 14);
 		frame.getContentPane().add(lblNombrePlantaDestino);
+		lblNombrePlantaDestino.setForeground(beige);
 		
 		JLabel lblDistancia = new JLabel("Distancia:");
 		lblDistancia.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDistancia.setBounds(105, 106, 70, 14);
 		frame.getContentPane().add(lblDistancia);
+		lblDistancia.setForeground(beige);
 		
 		txtDistancia = new JTextField();
 		txtDistancia.setBounds(180, 103, 126, 20);
@@ -79,11 +90,13 @@ public class CrearRuta {
 		JLabel lblKms = new JLabel("kms");
 		lblKms.setBounds(311, 106, 46, 14);
 		frame.getContentPane().add(lblKms);
+		lblKms.setForeground(beige);
 		
 		JLabel lblDuracinDelViaje = new JLabel("Duración del viaje:");
 		lblDuracinDelViaje.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDuracinDelViaje.setBounds(5, 131, 170, 14);
 		frame.getContentPane().add(lblDuracinDelViaje);
+		lblDuracinDelViaje.setForeground(beige);
 		
 		txtDuracion = new JTextField();
 		txtDuracion.setBounds(180, 128, 126, 20);
@@ -93,11 +106,13 @@ public class CrearRuta {
 		JLabel lblMinutos = new JLabel("minutos");
 		lblMinutos.setBounds(311, 131, 65, 14);
 		frame.getContentPane().add(lblMinutos);
+		lblMinutos.setForeground(beige);
 		
 		JLabel lblPesoMximo = new JLabel("Peso máximo:");
 		lblPesoMximo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPesoMximo.setBounds(35, 156, 140, 14);
 		frame.getContentPane().add(lblPesoMximo);
+		lblPesoMximo.setForeground(beige);
 		
 		txtPesomax = new JTextField();
 		txtPesomax.setBounds(180, 153, 126, 20);
@@ -107,6 +122,7 @@ public class CrearRuta {
 		JLabel lblToneladas = new JLabel("toneladas");
 		lblToneladas.setBounds(311, 156, 65, 14);
 		frame.getContentPane().add(lblToneladas);
+		lblToneladas.setForeground(beige);
 		
 		JComboBox<String> nombreOrigen = new JComboBox<String>();
 		nombreOrigen.setBounds(180, 53, 126, 20);
@@ -142,6 +158,8 @@ public class CrearRuta {
 			}
 		});
 		btnCrearRuta.setBounds(324, 225, 100, 25);
+		btnCrearRuta.setForeground(beige);
+		btnCrearRuta.setBackground(rojo);
 		frame.getContentPane().add(btnCrearRuta);
 		
 		

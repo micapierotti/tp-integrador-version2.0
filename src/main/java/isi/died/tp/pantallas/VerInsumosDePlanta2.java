@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,7 +39,12 @@ public class VerInsumosDePlanta2 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JButton btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -48,7 +54,8 @@ public class VerInsumosDePlanta2 {
 		});
 		btnAtrs.setBounds(324, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(15, 64, 402, 144);
 		frame.getContentPane().add(scrollPane);
@@ -64,22 +71,26 @@ public class VerInsumosDePlanta2 {
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(18, 21, 46, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		lblNombre = new JLabel("Nombre:");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(4, 39, 60, 14);
 		frame.getContentPane().add(lblNombre);
+		lblNombre.setForeground(beige);
 		
 		String id = Integer.toString(planta.getId());
 		lblIdPlanta = new JLabel(id);
 		lblIdPlanta.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIdPlanta.setBounds(79, 21, 46, 14);
 		frame.getContentPane().add(lblIdPlanta);
+		lblIdPlanta.setForeground(beige);
 		
 		lblNombrePlanta = new JLabel(planta.getNombre());
 		lblNombrePlanta.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNombrePlanta.setBounds(79, 39, 140, 14);
 		frame.getContentPane().add(lblNombrePlanta);
+		lblNombrePlanta.setForeground(beige);
 		
 		frame.setVisible(true);
 	}

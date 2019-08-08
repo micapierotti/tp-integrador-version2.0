@@ -1,5 +1,6 @@
 package isi.died.tp.app;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -54,6 +55,13 @@ public class App {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
+		
 		JButton gestionPlantas = new JButton("Gestión de Plantas");
 		gestionPlantas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,6 +71,8 @@ public class App {
 		});
 		gestionPlantas.setBounds(33, 60, 170, 40);
 		frame.getContentPane().add(gestionPlantas);
+		gestionPlantas.setBackground(beige);
+		gestionPlantas.setForeground(azul);
 		
 		JButton gestionLogistica = new JButton("Gestión de Logística");
 		gestionLogistica.addActionListener(new ActionListener() {
@@ -73,6 +83,8 @@ public class App {
 		});
 		gestionLogistica.setBounds(33, 120, 170, 40);
 		frame.getContentPane().add(gestionLogistica);
+		gestionLogistica.setBackground(beige);
+		gestionLogistica.setForeground(azul);
 		
 		JButton gestionInsumos = new JButton("Gestión de Insumos");
 		gestionInsumos.addActionListener(new ActionListener() {
@@ -84,6 +96,8 @@ public class App {
 		
 		gestionInsumos.setBounds(230, 60, 170, 40);
 		frame.getContentPane().add(gestionInsumos);
+		gestionInsumos.setBackground(beige);
+		gestionInsumos.setForeground(azul);
 		
 		JButton gestionTransporte = new JButton("Gestión de Transporte");
 		gestionTransporte.addActionListener(new ActionListener() {
@@ -95,6 +109,8 @@ public class App {
 		
 		gestionTransporte.setBounds(230, 120, 170, 40);
 		frame.getContentPane().add(gestionTransporte);
+		gestionTransporte.setBackground(beige);
+		gestionTransporte.setForeground(azul);
 		
 		JButton salir = new JButton("Salir");
 		salir.addActionListener(new ActionListener() {
@@ -104,5 +120,7 @@ public class App {
 		});
 		salir.setBounds(324, 225, 100, 25);
 		frame.getContentPane().add(salir);
+		salir.setBackground(rojo);
+		salir.setForeground(beige);
 	}
 }

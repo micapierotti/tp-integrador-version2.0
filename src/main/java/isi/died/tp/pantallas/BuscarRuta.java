@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,11 +53,18 @@ public class BuscarRuta {
 		frame.setTitle("Buscar ruta");
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
 		
 		JLabel lblId = new JLabel("Planta origen:");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(5, 104, 140, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		tfID = new JTextField();
 		tfID.setBounds(150, 101, 86, 20);
@@ -67,16 +75,19 @@ public class BuscarRuta {
 		lblIngreseLosDatos.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngreseLosDatos.setBounds(10, 45, 178, 14);
 		frame.getContentPane().add(lblIngreseLosDatos);
+		lblIngreseLosDatos.setForeground(beige);
 		
 		lblBsquedaopcional = new JLabel("(opcional):");
 		lblBsquedaopcional.setHorizontalAlignment(SwingConstants.LEFT);
 		lblBsquedaopcional.setBounds(10, 61, 150, 14);
 		frame.getContentPane().add(lblBsquedaopcional);
+		lblBsquedaopcional.setForeground(beige);
 		
 		lblNombre = new JLabel("Planta destino:");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(5, 135, 140, 14);
 		frame.getContentPane().add(lblNombre);
+		lblNombre.setForeground(beige);
 		
 		tfNombre = new JTextField();
 		tfNombre.setBounds(150, 132, 86, 20);
@@ -87,12 +98,14 @@ public class BuscarRuta {
 		btnEditar.setBounds(260, 200, 100, 25);
 		frame.getContentPane().add(btnEditar);
 		btnEditar.setEnabled(false);
-		
+		btnEditar.setForeground(beige);
+		btnEditar.setBackground(rojo);
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(370, 200, 100, 25);
 		frame.getContentPane().add(btnEliminar);
 		btnEliminar.setEnabled(false);
-		
+		btnEliminar.setForeground(beige);
+		btnEliminar.setBackground(rojo);
 		JButton btnNewButton_1 = new JButton("Atrás");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,11 +115,13 @@ public class BuscarRuta {
 		});
 		btnNewButton_1.setBounds(10, 226, 100, 25);
 		frame.getContentPane().add(btnNewButton_1);
-		
+		btnNewButton_1.setForeground(beige);
+		btnNewButton_1.setBackground(rojo);
 		JLabel lblPlantasEncontradas = new JLabel("Rutas encontradas:");
 		lblPlantasEncontradas.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPlantasEncontradas.setBounds(260, 20, 128, 14);
 		frame.getContentPane().add(lblPlantasEncontradas);
+		lblPlantasEncontradas.setForeground(beige);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(260, 45, 500, 151);

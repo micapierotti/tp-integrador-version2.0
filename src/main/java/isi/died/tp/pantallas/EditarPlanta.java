@@ -35,16 +35,23 @@ public class EditarPlanta {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JLabel lblId = new JLabel("ID:");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(135, 55, 50, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setBounds(135, 80, 50, 14);
 		frame.getContentPane().add(lblNombre);
+		lblNombre.setForeground(beige);
 		
 		textField = new JTextField();
 		textField.setForeground(Color.GRAY);
@@ -69,7 +76,8 @@ public class EditarPlanta {
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		JButton btnAceptar = new JButton("Guardar cambios");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -84,6 +92,8 @@ public class EditarPlanta {
 			}
 		});
 		btnAceptar.setBounds(271, 225, 153, 25);
+		btnAceptar.setForeground(beige);
+		btnAceptar.setBackground(rojo);
 		frame.getContentPane().add(btnAceptar);
 		
 		JButton btnAgregarStockA = new JButton("Editar insumos");
@@ -95,7 +105,8 @@ public class EditarPlanta {
 		});
 		btnAgregarStockA.setBounds(141, 120, 141, 40);
 		frame.getContentPane().add(btnAgregarStockA);
-		
+		btnAgregarStockA.setForeground(azul);
+		btnAgregarStockA.setBackground(beige);
 		frame.setVisible(true);
 	}
 }

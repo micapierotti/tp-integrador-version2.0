@@ -1,5 +1,6 @@
 package isi.died.tp.pantallas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -30,7 +31,12 @@ public class GestionLogistica {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JButton gestionPlantas = new JButton("Ver Mapa de Plantas");
 		gestionPlantas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -40,7 +46,8 @@ public class GestionLogistica {
 		});
 		gestionPlantas.setBounds(27, 37, 170, 40);
 		frame.getContentPane().add(gestionPlantas);
-		
+		gestionPlantas.setForeground(azul);
+		gestionPlantas.setBackground(beige);
 		JButton gestionLogistica = new JButton("Agregar Ruta");
 		gestionLogistica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,7 +57,8 @@ public class GestionLogistica {
 		});
 		gestionLogistica.setBounds(224, 37, 170, 40);
 		frame.getContentPane().add(gestionLogistica);
-		
+		gestionLogistica.setForeground(azul);
+		gestionLogistica.setBackground(beige);
 		JButton gestionInsumos = new JButton("Flujo Máximo de Red");
 		gestionInsumos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -60,7 +68,8 @@ public class GestionLogistica {
 		});
 		gestionInsumos.setBounds(27, 88, 170, 40);
 		frame.getContentPane().add(gestionInsumos);
-		
+		gestionInsumos.setForeground(azul);
+		gestionInsumos.setBackground(beige);
 		JButton salir = new JButton("Salir");
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -69,7 +78,8 @@ public class GestionLogistica {
 		});
 		salir.setBounds(324, 225, 100, 25);
 		frame.getContentPane().add(salir);
-		
+		salir.setForeground(beige);
+		salir.setBackground(rojo);
 		JButton atras = new JButton("Atrás");
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,7 +89,8 @@ public class GestionLogistica {
 		});
 		atras.setBounds(10, 226, 100, 25);
 		frame.getContentPane().add(atras);
-		
+		atras.setForeground(beige);
+		atras.setBackground(rojo);
 		JButton btnSeleccinDeEnvo = new JButton("Selección de Envío");
 		btnSeleccinDeEnvo.setBounds(27, 139, 170, 40);
 		frame.getContentPane().add(btnSeleccinDeEnvo);
@@ -89,7 +100,8 @@ public class GestionLogistica {
 				frame.dispose();
 			}
 		});
-		
+		btnSeleccinDeEnvo.setForeground(azul);
+		btnSeleccinDeEnvo.setBackground(beige);
 		JButton btnBuscarRuta = new JButton("Buscar Ruta");
 		btnBuscarRuta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,7 +111,8 @@ public class GestionLogistica {
 		});
 		btnBuscarRuta.setBounds(224, 88, 170, 40);
 		frame.getContentPane().add(btnBuscarRuta);
-		
+		btnBuscarRuta.setForeground(azul);
+		btnBuscarRuta.setBackground(beige);
 		JButton btnCaminosEntrePlantas = new JButton("Caminos entre plantas");
 		btnCaminosEntrePlantas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -109,6 +122,8 @@ public class GestionLogistica {
 		});
 		btnCaminosEntrePlantas.setBounds(224, 139, 170, 40);
 		frame.getContentPane().add(btnCaminosEntrePlantas);
+		btnCaminosEntrePlantas.setForeground(azul);
+		btnCaminosEntrePlantas.setBackground(beige);
 		frame.setVisible(true);
 	}
 

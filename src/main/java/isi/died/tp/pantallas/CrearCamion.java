@@ -7,6 +7,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.SwingConstants;
@@ -41,15 +42,23 @@ public class CrearCamion {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
+		
+		frame.getContentPane().setBackground(azul);
 		
 		JLabel lblDatosDelVehculo = new JLabel("Datos del vehículo:");
 		lblDatosDelVehculo.setBounds(10, 10, 200, 20);
 		frame.getContentPane().add(lblDatosDelVehculo);
+		lblDatosDelVehculo.setForeground(beige);
 		
 		JLabel lblId = new JLabel("ID:");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(0, 41, 200, 20);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		textIdCamion = new JTextField();
 		textIdCamion.setBounds(202, 249, 130, 20);
@@ -60,6 +69,7 @@ public class CrearCamion {
 		lblMarca.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblMarca.setBounds(0, 72, 200, 20);
 		frame.getContentPane().add(lblMarca);
+		lblMarca.setForeground(beige);
 		
 		textMarcaCamion = new JTextField();
 		textMarcaCamion.setBounds(202, 41, 130, 20);
@@ -70,6 +80,7 @@ public class CrearCamion {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel.setBounds(0, 103, 200, 20);
 		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setForeground(beige);
 		
 		textModeloCamion = new JTextField();
 		textModeloCamion.setBounds(202, 72, 130, 20);
@@ -80,6 +91,7 @@ public class CrearCamion {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setBounds(0, 134, 200, 20);
 		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(beige);
 		
 		textDominioCamion = new JTextField();
 		textDominioCamion.setBounds(202, 103, 130, 20);
@@ -90,11 +102,13 @@ public class CrearCamion {
 		lblAo.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblAo.setBounds(0, 165, 200, 20);
 		frame.getContentPane().add(lblAo);
+		lblAo.setForeground(beige);
 		
 		JLabel lblCostoPorKm = new JLabel("Costo por Km :");
 		lblCostoPorKm.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCostoPorKm.setBounds(0, 196, 200, 20);
 		frame.getContentPane().add(lblCostoPorKm);
+		lblCostoPorKm.setForeground(beige);
 		
 		textCostoXKm = new JTextField();
 		textCostoXKm.setBounds(202, 134, 130, 20);
@@ -105,15 +119,18 @@ public class CrearCamion {
 		lblEsAptoPara.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblEsAptoPara.setBounds(0, 223, 200, 20);
 		frame.getContentPane().add(lblEsAptoPara);
+		lblEsAptoPara.setForeground(beige);
 		
 		JRadioButton rdbtnS = new JRadioButton("Si");
 		rdbtnS.setBounds(202, 223, 55, 20);
 		frame.getContentPane().add(rdbtnS);
-		
+		rdbtnS.setForeground(beige);
+		rdbtnS.setBackground(azul);
 		JLabel lblCapacidad = new JLabel("Capacidad :");
 		lblCapacidad.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCapacidad.setBounds(0, 249, 200, 20);
 		frame.getContentPane().add(lblCapacidad);
+		lblCapacidad.setForeground(beige);
 		
 		textCapacidad = new JTextField();
 		textCapacidad.setBounds(202, 196, 130, 20);
@@ -125,7 +142,8 @@ public class CrearCamion {
 		frame.getContentPane().add(rdbtnNo);
 		buttonGroupLiquidos.add(rdbtnNo);
 		buttonGroupLiquidos.add(rdbtnS);
-		
+		rdbtnNo.setForeground(beige);
+		rdbtnNo.setBackground(azul);
 		textField = new JTextField();
 		textField.setBounds(202, 165, 130, 20);
 		frame.getContentPane().add(textField);
@@ -140,9 +158,12 @@ public class CrearCamion {
 		});
 		btnAtrs.setBounds(10, 280, 200, 20);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		JButton btnAgregar = new JButton("Crear camión");
 		btnAgregar.setBounds(224, 280, 200, 20);
+		btnAgregar.setForeground(beige);
+		btnAgregar.setBackground(rojo);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nuevoId = new String();

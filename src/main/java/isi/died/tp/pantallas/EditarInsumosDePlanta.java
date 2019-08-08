@@ -16,6 +16,7 @@ import isi.died.tp.dominio.Stock;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class EditarInsumosDePlanta {
@@ -44,7 +45,12 @@ public class EditarInsumosDePlanta {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(20, 21, 394, 154);
 		frame.getContentPane().add(scrollPane);
@@ -66,7 +72,8 @@ public class EditarInsumosDePlanta {
 				frame.dispose();
 			}
 		});
-
+		btnAgregarStockA.setForeground(beige);
+		btnAgregarStockA.setBackground(rojo);
 		btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,7 +83,8 @@ public class EditarInsumosDePlanta {
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		btnEditar = new JButton("Editar");
 		btnEditar.setBounds(225, 186, 89, 25);
 		frame.getContentPane().add(btnEditar);
@@ -87,7 +95,8 @@ public class EditarInsumosDePlanta {
 				frame.dispose();
 			}
 		});
-		
+		btnEditar.setForeground(beige);
+		btnEditar.setBackground(rojo);
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setBounds(324, 186, 89, 25);
 		frame.getContentPane().add(btnBorrar);
@@ -98,6 +107,8 @@ public class EditarInsumosDePlanta {
 				frame.dispose();
 			}
 		});
+		btnBorrar.setForeground(beige);
+		btnBorrar.setBackground(rojo);
 		model.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged (ListSelectionEvent e) {
 				if(!model.isSelectionEmpty()) {

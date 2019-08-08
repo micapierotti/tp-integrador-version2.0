@@ -18,6 +18,7 @@ import isi.died.tp.dominio.*;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class VerPlantas {
@@ -42,10 +43,16 @@ public class VerPlantas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JLabel lblTexto = new JLabel("Plantas ordenadas por Page Rank (cantidad de caminos):");
 		lblTexto.setBounds(50, 20, 450, 14);
 		frame.getContentPane().add(lblTexto);
+		lblTexto.setForeground(beige);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(50, 38, 472, 150);
@@ -80,7 +87,8 @@ public class VerPlantas {
 		btnVerInsumos.setBounds(411, 202, 110, 25);
 		frame.getContentPane().add(btnVerInsumos);
 		btnVerInsumos.setEnabled(false);
-		
+		btnVerInsumos.setForeground(beige);
+		btnVerInsumos.setBackground(rojo);
 		btnAtrs = new JButton("Atrás");
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,7 +98,8 @@ public class VerPlantas {
 		});
 		btnAtrs.setBounds(10, 225, 100, 25);
 		frame.getContentPane().add(btnAtrs);
-		
+		btnAtrs.setForeground(beige);
+		btnAtrs.setBackground(rojo);
 		model.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if(!model.isSelectionEmpty()) {

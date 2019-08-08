@@ -1,6 +1,7 @@
 package isi.died.tp.pantallas;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -47,7 +48,12 @@ public class EditarInsumo {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		Color gris= new Color(187,187,187);
+		Color azul= new Color(40,49,72);
+		Color rojo= new Color(145,53,53);
+		Color beige= new Color(233,238,201);
 		
+		frame.getContentPane().setBackground(azul);
 		JLabel editarCampos = new JLabel("Editar los campos del Insumo: ");
 		editarCampos.setBounds(10, 11, 164, 14);
 		frame.getContentPane().add(editarCampos);
@@ -67,16 +73,19 @@ public class EditarInsumo {
 		});
 		Atrás.setBounds(10, 305, 100, 25);
 		frame.getContentPane().add(Atrás);
-		
+		Atrás.setForeground(beige);
+		Atrás.setBackground(rojo);
 		JLabel lblId = new JLabel("ID: ");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblId.setBounds(164, 39, 46, 14);
 		frame.getContentPane().add(lblId);
+		lblId.setForeground(beige);
 		
 		JLabel lblDescripcin = new JLabel("Descripción: ");
 		lblDescripcin.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblDescripcin.setBounds(10, 70, 200, 14);
 		frame.getContentPane().add(lblDescripcin);
+		lblDescripcin.setForeground(beige);
 		
 		tfDescripcion = new JTextField();
 		tfDescripcion.setColumns(10);
@@ -88,11 +97,13 @@ public class EditarInsumo {
 		lblUnidadDeMedida.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUnidadDeMedida.setBounds(10, 98, 200, 14);
 		frame.getContentPane().add(lblUnidadDeMedida);
+		lblUnidadDeMedida.setForeground(beige);
 		
 		JLabel lblCostoPorUnidad = new JLabel("Costo por unidad: ");
 		lblCostoPorUnidad.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCostoPorUnidad.setBounds(10, 126, 200, 14);
 		frame.getContentPane().add(lblCostoPorUnidad);
+		lblCostoPorUnidad.setForeground(beige);
 		
 		tfCosto = new JTextField();
 		tfCosto.setColumns(10);
@@ -103,6 +114,7 @@ public class EditarInsumo {
 		lblStockEnCentro.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblStockEnCentro.setBounds(10, 154, 200, 14);
 		frame.getContentPane().add(lblStockEnCentro);
+		lblStockEnCentro.setForeground(beige);
 		
 		tfStock = new JTextField();
 		tfStock.setColumns(10);
@@ -114,6 +126,7 @@ public class EditarInsumo {
 		lblRef.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblRef.setBounds(10, 182, 200, 14);
 		frame.getContentPane().add(lblRef);
+		lblRef.setForeground(beige);
 		
 		JComboBox cbUnidad = new JComboBox();
 		cbUnidad.setModel(new DefaultComboBoxModel(UnidadMedida.values()));
@@ -124,25 +137,30 @@ public class EditarInsumo {
 		JRadioButton siR = new JRadioButton("Si");
 		siR.setBounds(214, 178, 46, 23);
 		frame.getContentPane().add(siR);
-
+		siR.setForeground(beige);
+		siR.setBackground(azul);
 		
 		JRadioButton noR = new JRadioButton("No");
 		noR.setBounds(298, 178, 46, 23);
 		frame.getContentPane().add(noR);
-
+		noR.setForeground(beige);
+		noR.setBackground(azul);
 		JLabel lblesLquido = new JLabel("¿Es líquido? ");
 		lblesLquido.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblesLquido.setBounds(10, 207, 200, 14);
 		frame.getContentPane().add(lblesLquido);
+		lblesLquido.setForeground(beige);
 		
 		JRadioButton noL = new JRadioButton("No");
 		noL.setBounds(298, 204, 46, 23);
 		frame.getContentPane().add(noL);
-
+		noL.setForeground(beige);
+		noL.setBackground(azul);
 		JRadioButton siL = new JRadioButton("Si");
 		siL.setBounds(214, 204, 46, 23);
 		frame.getContentPane().add(siL);
-		
+		siL.setForeground(beige);
+		siL.setBackground(azul);
 		buttonGroupRefrigerado.add(noR);
 		buttonGroupRefrigerado.add(siR);
 		buttonGroupLiquidos.add(noL);
@@ -153,6 +171,7 @@ public class EditarInsumo {
 		lblPeso.setBounds(10, 232, 200, 14);
 		frame.getContentPane().add(lblPeso);
 		lblPeso.setVisible(false);
+		lblPeso.setForeground(beige);
 		
 		JTextField tfPeso = new JTextField();
 		tfPeso.setColumns(10);
@@ -165,6 +184,7 @@ public class EditarInsumo {
 		lblDensidad.setBounds(10, 232, 200, 14);
 		frame.getContentPane().add(lblDensidad);
 		lblDensidad.setVisible(false);
+		lblDensidad.setForeground(beige);
 		
 		JTextField tfDensidad = new JTextField();
 		tfDensidad.setColumns(10);
@@ -177,6 +197,7 @@ public class EditarInsumo {
 		lblVol.setBounds(10, 263, 200, 14);
 		frame.getContentPane().add(lblVol);
 		lblVol.setVisible(false);
+		lblVol.setForeground(beige);
 		
 		JTextField tfVol = new JTextField();
 		tfVol.setColumns(10);
@@ -231,6 +252,8 @@ public class EditarInsumo {
 		
 		JButton agregarInsumo = new JButton("Guardar Insumo");
 		agregarInsumo.setBounds(349, 305, 125, 25);
+		agregarInsumo.setForeground(beige);
+		agregarInsumo.setBackground(rojo);
 		frame.getContentPane().add(agregarInsumo);
 		agregarInsumo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
