@@ -150,6 +150,7 @@ public class CrearRuta {
 				double pesomax = Double.parseDouble(txtPesomax.getText());
 				
 				Ruta nuevaRuta = new Ruta(dist,duracion,pesomax,origen,destino);
+				datos.getGrafo().conectar(origen, destino, dist, pesomax);
 				ArrayList<Ruta> rutas = datos.getListaRutas();
 				rutas.add(nuevaRuta);
 				datos.setListaRutas(rutas);
