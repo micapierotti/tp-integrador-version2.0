@@ -14,7 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import isi.died.tp.datos.Datos;
+import isi.died.tp.dominio.Planta;
 import isi.died.tp.dominio.Ruta;
+import isi.died.tp.estructuras.Arista;
 
 public class EliminarRuta {
 
@@ -151,6 +153,9 @@ public class EliminarRuta {
 		btnEliminarRuta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				datos.eliminarRuta(ruta);
+				ArrayList<Arista<Planta>> listaAristas=(ArrayList<Arista<Planta>>) datos.getGrafo().getAristas();
+				listaAristas.remove(datos.getGrafo().buscarArista(ruta.getInicio(),ruta.getFin()));
+				datos.getGrafo().setAristas(listaAristas);
 				new BuscarRuta(datos);
 				frame.dispose();
 			}
