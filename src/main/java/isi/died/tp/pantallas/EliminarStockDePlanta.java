@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import isi.died.tp.datos.Datos;
+import isi.died.tp.dominio.Insumo;
 import isi.died.tp.dominio.Planta;
 import isi.died.tp.dominio.Stock;
 import javax.swing.JButton;
@@ -75,7 +76,19 @@ public class EliminarStockDePlanta {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArrayList<Stock> listaS = planta.getStocks();
+				ArrayList<Insumo> listaI = datos.getListaInsumos();
+				
+				for(Insumo insumo:listaI) {
+					if(insumo.getId()==stock.getInsumo().getId()) {
+						listaI.remove(insumo);
+						insumo.disminuirInsumo(stock.getCantidad());
+						listaI.add(insumo);
+					}
+				}
+				datos.setListaInsumos(listaI);
+				
 				listaS.remove(stock);
+				
 				planta.setStocks(listaS);
 				new EditarInsumosDePlanta(planta, datos);
 				frame.dispose();

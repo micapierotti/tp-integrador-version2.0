@@ -104,10 +104,24 @@ public class EditarStockDePlanta {
 		btnGuardarCambios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cant, puntoped;
+				int cantViejo,difCant;
+				
 				ArrayList<Stock> listaS = planta.getStocks();
+				ArrayList<Insumo> listaI = datos.getListaInsumos();
+				
 				listaS.remove(stock);
 				cant=Integer.parseInt(textField.getText());
 				puntoped=Integer.parseInt(textField_1.getText());
+				
+				cantViejo=stock.getCantidad();
+				difCant=cant-cantViejo;
+				Insumo insumo = stock.getInsumo();
+				
+				listaI.remove(insumo);
+				insumo.incrementarInsumo(difCant);
+				listaI.add(insumo);
+				datos.setListaInsumos(listaI);
+				
 				stock.setCantidad(cant);
 				stock.setPuntoPedido(puntoped);
 				listaS.add(stock);

@@ -111,6 +111,13 @@ public class AgregarStockPlanta {
 				String nombreIn = listaInsumos.getSelectedItem().toString();
 				Insumo ins= datos.buscarInsumo(nombreIn);
 				ArrayList<Stock> listaS = planta.getStocks();
+				
+				ArrayList<Insumo> listaI = datos.getListaInsumos();
+				listaI.remove(ins);
+				ins.incrementarInsumo(cantidad);
+				listaI.add(ins);
+				datos.setListaInsumos(listaI);
+				
 				Stock st = new Stock(id,cantidad,puntopedido,ins);
 				listaS.add(st);
 				planta.setStocks(listaS);
