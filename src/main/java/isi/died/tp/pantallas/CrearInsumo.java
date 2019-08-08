@@ -25,7 +25,6 @@ public class CrearInsumo {
 	private JTextField tfId;
 	private JTextField tfDescripcion;
 	private JTextField tfCosto;
-	private JTextField tfStock;
 	private Datos datos;
 	
 	private final ButtonGroup buttonGroupRefrigerado = new ButtonGroup();
@@ -104,20 +103,9 @@ public class CrearInsumo {
 		tfCosto.setBounds(214, 123, 130, 20);
 		frame.getContentPane().add(tfCosto);
 		
-		JLabel lblStockEnCentro = new JLabel("Stock en centro de acopio: ");
-		lblStockEnCentro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblStockEnCentro.setBounds(10, 154, 200, 14);
-		frame.getContentPane().add(lblStockEnCentro);
-		lblStockEnCentro.setForeground(beige);
-		
-		tfStock = new JTextField();
-		tfStock.setColumns(10);
-		tfStock.setBounds(214, 151, 130, 20);
-		frame.getContentPane().add(tfStock);
-		
 		JLabel lblRef = new JLabel("¿Es refrigerado? ");
 		lblRef.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblRef.setBounds(10, 182, 200, 14);
+		lblRef.setBounds(10, 148, 200, 14);
 		frame.getContentPane().add(lblRef);
 		lblRef.setForeground(beige);
 		
@@ -127,28 +115,28 @@ public class CrearInsumo {
 		frame.getContentPane().add(cbUnidad);
 		
 		JRadioButton siR = new JRadioButton("Si");
-		siR.setBounds(214, 178, 46, 23);
+		siR.setBounds(214, 144, 46, 23);
 		frame.getContentPane().add(siR);
 		siR.setForeground(beige);
 		siR.setBackground(azul);
 		JRadioButton noR = new JRadioButton("No");
-		noR.setBounds(298, 178, 46, 23);
+		noR.setBounds(298, 144, 46, 23);
 		frame.getContentPane().add(noR);
 		noR.setForeground(beige);
 		noR.setBackground(azul);
 		JLabel lblesLquido = new JLabel("¿Es líquido? ");
 		lblesLquido.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblesLquido.setBounds(10, 207, 200, 14);
+		lblesLquido.setBounds(10, 173, 200, 14);
 		frame.getContentPane().add(lblesLquido);
 		lblesLquido.setForeground(beige);
 		
 		JRadioButton noL = new JRadioButton("No");
-		noL.setBounds(298, 204, 46, 23);
+		noL.setBounds(298, 170, 46, 23);
 		frame.getContentPane().add(noL);
 		noL.setForeground(beige);
 		noL.setBackground(azul);
 		JRadioButton siL = new JRadioButton("Si");
-		siL.setBounds(214, 204, 46, 23);
+		siL.setBounds(214, 170, 46, 23);
 		frame.getContentPane().add(siL);
 		siL.setForeground(beige);
 		siL.setBackground(azul);
@@ -159,40 +147,40 @@ public class CrearInsumo {
 		
 		JLabel lblPeso = new JLabel("Peso: ");
 		lblPeso.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPeso.setBounds(10, 232, 200, 14);
+		lblPeso.setBounds(10, 198, 200, 14);
 		frame.getContentPane().add(lblPeso);
 		lblPeso.setVisible(false);
 		lblPeso.setForeground(beige);
 		
 		JTextField tfPeso = new JTextField();
 		tfPeso.setColumns(10);
-		tfPeso.setBounds(214, 229, 130, 20);
+		tfPeso.setBounds(214, 195, 130, 20);
 		frame.getContentPane().add(tfPeso);
 		tfPeso.setVisible(false);
 		
 		JLabel lblDensidad = new JLabel("Densidad: ");
 		lblDensidad.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDensidad.setBounds(10, 232, 200, 14);
+		lblDensidad.setBounds(10, 198, 200, 14);
 		frame.getContentPane().add(lblDensidad);
 		lblDensidad.setVisible(false);
 		lblDensidad.setForeground(beige);
 		
 		JTextField tfDensidad = new JTextField();
 		tfDensidad.setColumns(10);
-		tfDensidad.setBounds(214, 229, 130, 20);
+		tfDensidad.setBounds(214, 195, 130, 20);
 		frame.getContentPane().add(tfDensidad);
 		tfDensidad.setVisible(false);
 		
 		JLabel lblVol = new JLabel("Volumen: ");
 		lblVol.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblVol.setBounds(10, 263, 200, 14);
+		lblVol.setBounds(10, 229, 200, 14);
 		frame.getContentPane().add(lblVol);
 		lblVol.setVisible(false);
 		lblVol.setForeground(beige);
 		
 		JTextField tfVol = new JTextField();
 		tfVol.setColumns(10);
-		tfVol.setBounds(214, 260, 130, 20);
+		tfVol.setBounds(214, 226, 130, 20);
 		frame.getContentPane().add(tfVol);
 		tfVol.setVisible(false);
 		
@@ -222,7 +210,7 @@ public class CrearInsumo {
 			public void actionPerformed(ActionEvent arg0) {
 				String id=tfId.getText();
 				String descripcion=tfDescripcion.getText();
-				int stockTotal=Integer.parseInt(tfStock.getText());
+				int stockTotal=0;
 				double costo=Double.parseDouble(tfCosto.getText());
 				boolean esRefrigerado=false;
 				if(siR.isSelected()) {
